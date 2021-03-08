@@ -1,0 +1,54 @@
+ 'use strict';
+
+
+
+let loc1 = {
+
+  locName: "seattle",
+  maxc : 65,
+  minc : 23,
+  avgco : 6.3,
+  cook : function(){
+    
+  }
+
+}
+
+let loc2 = {
+
+  locName: "tokyo",
+  maxc : 24,
+  minc : 3,
+  avgco : 1.2,
+
+}
+
+let loc3 = {
+
+  locName: "dubai",
+  maxc : 38,
+  minc : 20,
+  avgco : 3.7,
+
+}
+
+let loc4 = {
+
+  locName: "paris",
+  maxc : 38,
+  minc : 20,
+  avgco : 2.3,
+
+}
+
+let loc5 = {
+
+  locName: "lima",
+  maxc : 16,
+  minc : 2,
+  avgco : 4.6,
+  function randomg(maxc,minc){
+    return Math.floor(Math.random() * (maxc - minc + 1) + minc);
+  }
+
+}
