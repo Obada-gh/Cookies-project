@@ -1,146 +1,67 @@
- 'use strict';
+'use strict';
 
-
-
-let loc1 = {
-
-  locName: "seattle",
-  maxc : 65,
-  minc : 23,
-  avgco : 6.3,
-  cook : function(){
-
-  let randomg =  Math.floor(Math.random() * (this.maxc - this.minc + 1) + this.minc);
-  let numofcook = math.floor(this.avgco*randomg) ; 
-  }
-
-},
-storeAr: function() {
-
-  let ary = [];
-  for(let i = 0; i<14;i++){
-    ary[i] = this.cook();
-  }
-  ary[14] = 0 ;
-  for(let i = 0 ; i < 14; i++){
-
-    ary{14} += ary[i];
-  }
-  return ary;
+let myobj = {
+ ary : ["Seattle","Tokyo","Dubai","Paris","Lima"],
+ min : [23,3,11,20,2],
+ max : [65,24,38,38,16],
+ avg : [6.3,1.2,3.7,2.3,4.6],
+ main : document.getElementById('showList'),
 }
-};
 
-let loc2 = {
+function myFunction()
+{
+  for(let i = 0 ; i < myobj.ary.length; i++ ){
+    let result = {
+      getRandcCookPerHour: function(){
+        let rand = Math.floor(Math.random() * (myobj.max[i] - myobj.min[i] + 1) + myobj.min[i]);
+        let avg = myobj.avg[i];
+        let cookiesData = Math.floor(avg * rand);
+        return cookiesData;
+      },
+      storInArray: function(){
+        let array = [];
+        for (let i = 0 ; i < 14; i++ ){
+          array[i] = this.getRandcCookPerHour();
+        }
+        array[14] = 0 ;
+        for (let i = 0 ; i < 14; i++ ){
+          debugger;
+          array[14] = array[14] + array[i];
+        }
+        debugger;
+        return array;
+      }
+    };
+    let location = document.createElement('h3');
+location.innerText = myobj.ary[i]+' :';
+let unorderedList = document.createElement('ul');
+let hours = [];
+for (let i=0; i<14;i++){
+  hours[i]=i+6+':00  : ';
+}
 
-  locName: "tokyo",
-  maxc : 24,
-  minc : 3,
-  avgco : 1.2,
+let seatt = [];
+for (let i=0; i<15;i++){
+  seatt[i]=document.createElement('li');
+}
+let x = result.storInArray();
+for (let i = 0; i<15; i++){
+  seatt[i].innerText= hours[i]+x[i]+' cookies';
+}
+for (let i = 0; i<14; i++){
+  unorderedList.appendChild(seatt[i]);
+}
+seatt[14].innerText= 'Total : '+x[14]+' cookies';
+unorderedList.appendChild(seatt[14]);
+myobj.main.appendChild(location);
+
+myobj.main.appendChild(unorderedList);
+  }
 
 }
-cook : function(){
 
-  let randomg =  Math.floor(Math.random() * (this.maxc - this.minc + 1) + this.minc);
-  let numofcook = math.floor(this.avgco*randomg) ; 
-  }
 
-},
-storeAr: function() {
 
-  let ary = [];
-  for(let i = 0; i<14;i++){
-    ary[i] = this.cook();
-  }
-  ary[14] = 0 ;
-  for(let i = 0 ; i < 14; i++){
 
-    ary{14} += ary[i];
-  }
-  return ary;
-}
-};
 
-let loc3 = {
-
-  locName: "dubai",
-  maxc : 38,
-  minc : 20,
-  avgco : 3.7,
-  cook : function(){
-
-  let randomg =  Math.floor(Math.random() * (this.maxc - this.minc + 1) + this.minc);
-  let numofcook = math.floor(this.avgco*randomg) ; 
-  }
-
-},
-storeAr: function() {
-
-  let ary = [];
-  for(let i = 0; i<14;i++){
-    ary[i] = this.cook();
-  }
-  ary[14] = 0 ;
-  for(let i = 0 ; i < 14; i++){
-
-    ary{14} += ary[i];
-  }
-  return ary;
-}
-};
-
-let loc4 = {
-
-  locName: "paris",
-  maxc : 38,
-  minc : 20,
-  avgco : 2.3,
-  cook : function(){
-
-  let randomg =  Math.floor(Math.random() * (this.maxc - this.minc + 1) + this.minc);
-  let numofcook = math.floor(this.avgco*randomg) ; 
-  }
-
-},
-storeAr: function() {
-
-  let ary = [];
-  for(let i = 0; i<14;i++){
-    ary[i] = this.cook();
-  }
-  ary[14] = 0 ;
-  for(let i = 0 ; i < 14; i++){
-
-    ary{14} += ary[i];
-  }
-  return ary;
-}
-};
-
-let loc5 = {
-
-  locName: "lima",
-  maxc : 16,
-  minc : 2,
-  avgco : 4.6,
-  cook : function(){
-
-  let randomg =  Math.floor(Math.random() * (this.maxc - this.minc + 1) + this.minc);
-  let numofcook = math.floor(this.avgco*randomg) ; 
-  }
-
-},
-storeAr: function() {
-
-  let ary = [];
-  for(let i = 0; i<14;i++){
-    ary[i] = this.cook();
-  }
-  ary[14] = 0 ;
-  for(let i = 0 ; i < 14; i++){
-
-    ary{14} += ary[i];
-  }
-  return ary;
-}
-};
 
