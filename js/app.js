@@ -63,6 +63,33 @@ count.innerHTML =total;
 
 }
 
+function funloc() {
+  myobj.ary.push(document.getElementById("loc").nodeValue);
+  console.log(myobj.ary)
+
+}
+
+
+function funmax() {
+  myobj.ary.push(document.getElementById("max").Value);
+  console.log(myobj.max)
+}
+
+
+function funmin() {
+  myobj.ary.push(document.getElementById("min").Value);
+  console.log(myobj.min)
+  
+}
+
+function funavg() {
+  myobj.ary.push(document.getElementById("avg").Value);
+  console.log(myobj.avg)
+
+  
+}
+
+
 
 
 
