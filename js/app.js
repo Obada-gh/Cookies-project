@@ -12,7 +12,7 @@ function myFunction()
 {
   for(let i = 0 ; i < myobj.ary.length; i++ ){
     let result = {
-      getRandcCookPerHour: function(){
+      getRandCookPerHour: function(){
         let rand = Math.floor(Math.random() * (myobj.max[i] - myobj.min[i] + 1) + myobj.min[i]);
         let avg = myobj.avg[i];
         let cookiesData = Math.floor(avg * rand);
@@ -21,7 +21,7 @@ function myFunction()
       storInArray: function(){
         let array = [];
         for (let i = 0 ; i < 14; i++ ){
-          array[i] = this.getRandcCookPerHour();
+          array[i] = this.getRandCookPerHour();
         }
         array[14] = 0 ;
         for (let i = 0 ; i < 14; i++ ){
