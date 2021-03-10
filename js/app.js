@@ -7,12 +7,13 @@ let myobj = {
  avg : [6.3,1.2,3.7,2.3,4.6],
  main : document.getElementById('showList'),
 }
-
+let counter = 0;
+const table = document.getElementById("showList");
 function myFunction()
 {
   for(let i = 0 ; i < myobj.ary.length; i++ ){
     let result = {
-      getRandcCookPerHour: function(){
+      getRandCookPerHour: function(){
         let rand = Math.floor(Math.random() * (myobj.max[i] - myobj.min[i] + 1) + myobj.min[i]);
         let avg = myobj.avg[i];
         let cookiesData = Math.floor(avg * rand);
@@ -21,41 +22,43 @@ function myFunction()
       storInArray: function(){
         let array = [];
         for (let i = 0 ; i < 14; i++ ){
-          array[i] = this.getRandcCookPerHour();
+          array[i] = this.getRandCookPerHour();
         }
         array[14] = 0 ;
         for (let i = 0 ; i < 14; i++ ){
-          debugger;
           array[14] = array[14] + array[i];
         }
-        debugger;
         return array;
       }
     };
     let location = document.createElement('h3');
 location.innerText = myobj.ary[i]+' :';
-let unorderedList = document.createElement('ul');
-let hours = [];
-for (let i=0; i<14;i++){
-  hours[i]=i+6+':00  : ';
-}
+
+//let unorderedList = document.createElement('ul');
+debugger;
+let unorderedList = table.insertRow(i+1);
+let name = unorderedList.insertCell(0);
+  name.innerHTML = myobj.ary[i];
+debugger;
 
 let seatt = [];
-for (let i=0; i<15;i++){
-  seatt[i]=document.createElement('li');
-}
+
+var total = 0
 let x = result.storInArray();
 for (let i = 0; i<15; i++){
-  seatt[i].innerText= hours[i]+x[i]+' cookies';
+  seatt[i] = x[i]+' cookies';
+  total = total +  x[i];
 }
 for (let i = 0; i<14; i++){
-  unorderedList.appendChild(seatt[i]);
+  
+  
+  let date = unorderedList.insertCell(i+1);
+  date.innerHTML = seatt[i];
+  
 }
-seatt[14].innerText= 'Total : '+x[14]+' cookies';
-unorderedList.appendChild(seatt[14]);
-myobj.main.appendChild(location);
+let count = unorderedList.insertCell(15);
+count.innerHTML =total;
 
-myobj.main.appendChild(unorderedList);
   }
 
 }
