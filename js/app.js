@@ -6,6 +6,24 @@ let myobj = {
  max : [65,24,38,38,16],
  avg : [6.3,1.2,3.7,2.3,4.6],
  main : document.getElementById('showList'),
+ funloc() {
+  this.ary.push(document.getElementById("loc").nodeValue);
+  console.log(myobj.ary)
+ },
+  funmin(){
+  this.min.push(document.getElementById("max").Value)
+  console.log(myobj.min)
+  },
+  funmax(){
+  this.max.push(document.getElementById("min").Value);
+    console.log(myobj.max)
+  },
+  funavg() {
+  this.avg.push(document.getElementById("avg").Value);
+    console.log(myobj.avg)
+    },
+
+
 }
 let counter = 0;
 const table = document.getElementById("showList");
@@ -63,31 +81,7 @@ count.innerHTML =total;
 
 }
 
-function funloc() {
-  myobj.ary.push(document.getElementById("loc").nodeValue);
-  console.log(myobj.ary)
-
-}
-
-
-function funmax() {
-  myobj.ary.push(document.getElementById("max").Value);
-  console.log(myobj.max)
-}
-
-
-function funmin() {
-  myobj.ary.push(document.getElementById("min").Value);
-  console.log(myobj.min)
-  
-}
-
-function funavg() {
-  myobj.ary.push(document.getElementById("avg").Value);
-  console.log(myobj.avg)
-
-  
-}
+///
 
 
 
