@@ -1,90 +1,206 @@
-'use strict';
+'use strict'
+let loc = ['Seattle','Tokyo','Dubai','Paris','Lima'];
+let hour = ['6am ','7am ','8am ','9am ','10am ','11am ','12pm ','1pm ','2pm ','3pm ','4pm ','5pm ','6pm ','7pm '];
 
-let myobj = {
- ary : ["Seattle","Tokyo","Dubai","Paris","Lima"],
- min : [23,3,11,20,2],
- max : [65,24,38,38,16],
- avg : [6.3,1.2,3.7,2.3,4.6],
- main : document.getElementById('showList'),
- funloc() {
-  this.ary.push(document.getElementById("loc").nodeValue);
-  console.log(myobj.ary)
- },
-  funmin(){
-  this.min.push(document.getElementById("max").Value)
-  console.log(myobj.min)
-  },
-  funmax(){
-  this.max.push(document.getElementById("min").Value);
-    console.log(myobj.max)
-  },
-  funavg() {
-  this.avg.push(document.getElementById("avg").Value);
-    console.log(myobj.avg)
-    },
+let loc1 = {
+  locName: 'Seattle',
+  minHcu: 23,
+  maxHcu: 65,
+  avgCoPCu: 6.3,
 
+  cPh: function() {
+    let cookies = [];
+    for (let i =0;i < hour.length;i++) {
 
-}
-let counter = 0;
-const table = document.getElementById("showList");
-function myFunction()
-{
-  for(let i = 0 ; i < myobj.ary.length; i++ ){
-    let result = {
-      getRandCookPerHour: function(){
-        let rand = Math.floor(Math.random() * (myobj.max[i] - myobj.min[i] + 1) + myobj.min[i]);
-        let avg = myobj.avg[i];
-        let cookiesData = Math.floor(avg * rand);
-        return cookiesData;
-      },
-      storInArray: function(){
-        let array = [];
-        for (let i = 0 ; i < 14; i++ ){
-          array[i] = this.getRandCookPerHour();
-        }
-        array[14] = 0 ;
-        for (let i = 0 ; i < 14; i++ ){
-          array[14] = array[14] + array[i];
-        }
-        return array;
-      }
-    };
-    let location = document.createElement('h3');
-location.innerText = myobj.ary[i]+' :';
+      let numOfcu = Math.floor(Math.random()*(this.maxHcu - this.minHcu + 1));
+      let numOfco = Math.floor(numOfcu * this.avgCoPCu);
+      cookies.push(numOfco);
+    }
 
-//let unorderedList = document.createElement('ul');
-debugger;
-let unorderedList = table.insertRow(i+1);
-let name = unorderedList.insertCell(0);
-  name.innerHTML = myobj.ary[i];
-debugger;
+  return cookies;
+},
 
-let seatt = [];
+show: function (){ 
+  let showEl = document.getElementById('showit');
+  let showSe = document.createElement('section');
+  let showHe = document.createElement('h3');
+  showHe.textContent = 'Cookies at ' + this.locName;
+  showSe.appendChild(showHe);
 
-var total = 0
-let x = result.storInArray();
-for (let i = 0; i<15; i++){
-  seatt[i] = x[i]+' cookies';
-  total = total +  x[i];
-}
-for (let i = 0; i<14; i++){
-  
-  
-  let date = unorderedList.insertCell(i+1);
-  date.innerHTML = seatt[i];
-  
-}
-let count = unorderedList.insertCell(15);
-count.innerHTML =total;
+  let cookiesPh = this.cPh();
 
+  for (let i=0;i<hour.length;i++) {
+
+    let para = document.createElement('p');
+    para.textContent = " "+ hour[i] + cookiesPh[i];
+    showSe.appendChild(para);
   }
 
+  showEl.appendChild(showSe);
+
 }
+};
+loc1.show();
 
-///
+let loc2 = {
+  locName: 'Tokyo',
+  minHcu: 3,
+  maxHcu: 24,
+  avgCoPCu: 1.2,
 
+  cPh: function() {
+    let cookies = [];
+    for (let i =0;i < hour.length;i++) {
 
+      let numOfcu = Math.floor(Math.random()*(this.maxHcu - this.minHcu + 1));
+      let numOfco = Math.floor(numOfcu * this.avgCoPCu);
+      cookies.push(numOfco);
+    }
 
+  return cookies;
+},
+
+show: function (){ 
+  let showEl = document.getElementById('showit');
+  let showSe = document.createElement('section');
+  let showHe = document.createElement('h3');
+  showHe.textContent = 'Cookies at ' + this.locName;
+  showSe.appendChild(showHe);
+
+  let cookiesPh = this.cPh();
+
+  for (let i=0;i<hour.length;i++) {
+
+    let para = document.createElement('p');
+    para.textContent = " "+ hour[i] + cookiesPh[i];
+    showSe.appendChild(para);
+  }
+
+  showEl.appendChild(showSe);
+
+}
+};
+loc2.show();
+
+let loc3 = {
+  locName: 'Dubai',
+  minHcu: 11,
+  maxHcu: 38,
+  avgCoPCu: 3.7,
+
+  cPh: function() {
+    let cookies = [];
+    for (let i =0;i < hour.length;i++) {
+
+      let numOfcu = Math.floor(Math.random()*(this.maxHcu - this.minHcu + 1));
+      let numOfco = Math.floor(numOfcu * this.avgCoPCu);
+      cookies.push(numOfco);
+    }
+
+  return cookies;
+},
+
+show: function (){ 
+  let showEl = document.getElementById('showit');
+  let showSe = document.createElement('section');
+  let showHe = document.createElement('h3');
+  showHe.textContent = 'Cookies at ' + this.locName;
+  showSe.appendChild(showHe);
+
+  let cookiesPh = this.cPh();
+
+  for (let i=0;i<hour.length;i++) {
+
+    let para = document.createElement('p');
+    para.textContent = " "+ hour[i] + cookiesPh[i];
+    showSe.appendChild(para);
+  }
+
+  showEl.appendChild(showSe);
+
+}
+};
+loc3.show();
+
+let loc4 = {
+  locName: 'paris',
+  minHcu: 20,
+  maxHcu: 38,
+  avgCoPCu: 2.3,
+
+  cPh: function() {
+    let cookies = [];
+    for (let i =0;i < hour.length;i++) {
+
+      let numOfcu = Math.floor(Math.random()*(this.maxHcu - this.minHcu + 1));
+      let numOfco = Math.floor(numOfcu * this.avgCoPCu);
+      cookies.push(numOfco);
+    }
+
+  return cookies;
+},
+
+show: function (){ 
+  let showEl = document.getElementById('showit');
+  let showSe = document.createElement('section');
+  let showHe = document.createElement('h3');
+  showHe.textContent = 'Cookies at ' + this.locName;
+  showSe.appendChild(showHe);
+
+  let cookiesPh = this.cPh();
+
+  for (let i=0;i<hour.length;i++) {
+
+    let para = document.createElement('p');
+    para.textContent = " "+ hour[i] + cookiesPh[i];
+    showSe.appendChild(para);
+  }
+
+  showEl.appendChild(showSe);
+
+}
+};
+loc4.show();
+
+let loc5 = {
+  locName: 'lima',
+  minHcu: 2,
+  maxHcu: 16,
+  avgCoPCu: 4.6,
+
+  cPh: function() {
+    let cookies = [];
+    for (let i =0;i < hour.length;i++) {
+
+      let numOfcu = Math.floor(Math.random()*(this.maxHcu - this.minHcu + 1));
+      let numOfco = Math.floor(numOfcu * this.avgCoPCu);
+      cookies.push(numOfco);
+    }
+
+  return cookies;
+},
+
+show: function (){ 
+  let showEl = document.getElementById('showit');
+  let showSe = document.createElement('section');
+  let showHe = document.createElement('h3');
+  showHe.textContent = 'Cookies at ' + this.locName;
+  showSe.appendChild(showHe);
+
+  let cookiesPh = this.cPh();
+
+  for (let i=0;i<hour.length;i++) {
+
+    let para = document.createElement('p');
+    para.textContent = " "+ hour[i] + cookiesPh[i];
+    showSe.appendChild(para);
+  }
+
+  showEl.appendChild(showSe);
+
+}
+};
+loc5.show();
 
 
 
