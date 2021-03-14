@@ -1,6 +1,6 @@
 'use strict'
 let info = []
-let hours = ['6am ','7am ','8am ','9am ','10am ','11am ','12pm ','1pm ','2pm ','3pm ','4pm ','5pm ','6pm ','7pm '];
+let hours = ['6am ','7am ','8am ','9am ','10am ','11am ','12pm ','1pm ','2pm ','3pm ','4pm ','5pm ','6pm ','7pm ' , 'Total Per Day'];
 let table = document.getElementById('showit')
 
 function locations(minCuPh, maxCuPh, avgCoPCu) {
@@ -35,6 +35,7 @@ function locations(minCuPh, maxCuPh, avgCoPCu) {
 }
 
 function createHeader() {
+  debugger;
   var tempData = [];
   for(var i=0; i<hours.length; i++) {
     tempData = tempData + '<th>' + hours[i] + '</th>';
@@ -130,6 +131,7 @@ createFooter();
 
 let locationForm = document.getElementById('location-form');
 locationForm.addEventListener('submit', function (event) {
+  debugger;
   event.preventDefault();
 
   let locationInput = event.target.locationInput.value;
